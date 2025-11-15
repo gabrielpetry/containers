@@ -45,10 +45,10 @@ jobs:
       # This is used to complete the identity challenge
       # with sigstore/fulcio when running outside of PRs.
       id-token: write
-    needs: [setup]
+    needs: [changed_containers]
     strategy:
       matrix:
-        value: ${{fromJSON(needs.setup.outputs.matrix)}}
+        value: ${{fromJSON(needs.changed_containers.outputs.matrix)}}
     steps:
       - run: |
           echo "${{ matrix.value }}"
