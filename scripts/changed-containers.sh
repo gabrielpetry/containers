@@ -7,4 +7,9 @@ sha="${2:-}"
 
 changed="$(git diff --name-only "${event_before}" "${sha}" | grep -Ev '.github|scripts' | cut -d'/' -f1 | sort -u | tr '\n' ' ' | xargs || echo '')"
 
-echo "containers=${changed}"
+if [[ -z "${changed}" ]]; then
+	echo 'containers=[]'
+else
+	json_array=$(printf '%s\n' "${changed}" | jq -R . | jq -s .)
+	echo "containers=${json_array}"
+fi
