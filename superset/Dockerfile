@@ -1,5 +1,8 @@
 FROM docker.io/apache/superset:5.0.0
 
+LABEL maintainer="Gabriel Petry"
+LABEL version="5.0.0"
+
 USER root
 
 # Install packages using uv into the virtual environment
