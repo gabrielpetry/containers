@@ -8,8 +8,7 @@ sha="${2:-}"
 changed="$(git diff --name-only "${event_before}" "${sha}" | grep -Ev '.github|.scripts' | cut -d'/' -f1 | sort -u || true)"
 
 if [[ -z "${changed}" ]]; then
-	echo "No container changes detected."
-	exit 0
+	exit 1
 fi
 
-echo "${changed}"
+echo "changed_containers=${changed}"
