@@ -80,6 +80,6 @@ jobs:
         with:
           context: "${{ matrix.value }}"
           push: ${{ github.event_name != 'pull_request' }}
-          tags: "${{ env.REGISTRY }}/${{ env.REPO }}/${{ matrix.value }}:${{ steps.meta.outputs.tag }}"
+          tags: "${{ env.REGISTRY }}/${{ env.REPO }}/${{ matrix.value }}:${{ steps.meta.outputs.version }}"
           cache-from: type=gha
           cache-to: type=gha,mode=max
