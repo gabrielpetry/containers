@@ -28,7 +28,7 @@ jobs:
       - name: List Dockerfile changes
         id: matrix
         run: |
-          sh ./scripts/changed-containers.sh \
+          bash ./scripts/changed-containers.sh \
             "${{ github.event.before }}" \
             "${{ github.sha }}" \
              >> $GITHUB_OUTPUT
@@ -67,7 +67,7 @@ jobs:
       - name: Get Docker image labels
         id: meta
         run: |
-          sh ./scripts/image-tag.sh \
+          bash ./scripts/image-tag.sh \
             "${{ matrix.value }}" \
             >> $GITHUB_OUTPUT
 
