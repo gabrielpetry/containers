@@ -2,6 +2,7 @@ FROM docker.io/apache/superset:5.0.0
 
 LABEL maintainer="Gabriel Petry"
 LABEL version="5.0.0"
+LABEL app="superset"
 
 USER root
 
