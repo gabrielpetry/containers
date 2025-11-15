@@ -4,6 +4,7 @@ LABEL maintainer="Gabriel Petry"
 LABEL version="5.0.0"
 LABEL app="superset"
 
+
 USER root
 
 # Install packages using uv into the virtual environment
