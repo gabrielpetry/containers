@@ -5,10 +5,6 @@ set -euo pipefail
 event_before="${1:-}"
 sha="${2:-}"
 
-changed="$(git diff --name-only "${event_before}" "${sha}" | grep -Ev '.github|.scripts' | cut -d'/' -f1 | sort -u || true)"
+changed="$(git diff --name-only "${event_before}" "${sha}" | grep -Ev '.github|.scripts' | cut -d'/' -f1 | sort -u || echo '')"
 
-if [[ -z "${changed}" ]]; then
-	exit 1
-fi
-
-echo "changed_containers=${changed}"
+echo "containers=${changed}"

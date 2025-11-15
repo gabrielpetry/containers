@@ -20,7 +20,7 @@ jobs:
   changed_containers:
     runs-on: ubuntu-latest
     outputs:
-      matrix: ${{ steps.matrix.outputs.value }}
+      matrix: ${{ steps.matrix.outputs.containers }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -37,7 +37,7 @@ jobs:
 
       - name: Output changed containers
         run: |
-          echo "${{ steps.matrix.outputs.value }}"
+          echo "${{ steps.matrix.outputs.containers }}"
 
   build:
     runs-on: ubuntu-latest
