@@ -10,6 +10,6 @@ changed="$(git diff --name-only "${event_before}" "${sha}" | grep -Ev '.github|s
 if [[ -z "${changed}" ]]; then
 	echo 'containers=[]'
 else
-	json_array=$(printf '%s\n' "${changed}" | jq -R . | jq -s .)
+	json_array=$(printf '%s\n' "${changed}" | jq -R . | jq -cs .)
 	echo "containers=${json_array}"
 fi

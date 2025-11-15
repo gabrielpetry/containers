@@ -4,6 +4,7 @@ LABEL maintainer="Gabriel Petry"
 LABEL version="5.0.0"
 LABEL app="superset"
 
+
 USER root
 
 # Install packages using uv into the virtual environment
@@ -17,6 +18,7 @@ RUN . /app/.venv/bin/activate && \
     Pillow \
     # trino
     trino
+
 
 # Switch back to the superset user
 USER superset
