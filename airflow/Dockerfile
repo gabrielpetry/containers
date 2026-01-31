@@ -1,5 +1,6 @@
 FROM apache/airflow:3.1.6
 
+LABEL version=3.1.6
 USER root
 
 RUN apt-get update \
