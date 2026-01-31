@@ -15,4 +15,5 @@ RUN apt-get update \
 USER airflow
 
 RUN pip install --no-cache-dir \
-  "apache-airflow-providers-apache-spark"
+  "apache-airflow-providers-apache-spark" \
+  "pyspark==3.5.7"
