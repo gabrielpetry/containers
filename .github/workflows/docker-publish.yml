@@ -48,7 +48,7 @@ jobs:
     needs: [changed_containers]
     strategy:
       matrix:
-        value: ${{fromJSON(needs.changed_containers.outputs.matrix.containers)}}
+        value: ${{fromJSON(needs.changed_containers.outputs.matrix)}}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
