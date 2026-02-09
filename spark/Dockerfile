@@ -30,6 +30,10 @@ RUN mkdir -p /opt/spark/git-scripts && \
 
 RUN pip install --no-cache-dir \
     apache-sedona \
-    apache-sedona[spark]
+    apache-sedona[spark] \
+    geopandas \
+    pandas \
+    boto3 \
+    pyarrow
 
 USER spark
