@@ -15,5 +15,12 @@ RUN apt-get update \
 USER airflow
 
 RUN pip install --no-cache-dir \
-  "apache-airflow-providers-apache-spark" \
-  "pyspark==3.5.7"
+  apache-airflow-providers-apache-spark \
+  "pyspark==3.5.7" \
+  apache-sedona \
+  apache-sedona[spark] \
+  geopandas \
+  pandas \
+  boto3 \
+  pyarrow
+
