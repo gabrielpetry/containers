@@ -27,9 +27,9 @@ RUN /bin/install-deps.sh \
 RUN mkdir -p /opt/spark/git-scripts && \
     chown -R spark:spark /opt/spark/git-scripts
 
-USER spark
 
 RUN pip install --no-cache-dir \
     apache-sedona \
     apache-sedona[spark]
 
+USER spark
