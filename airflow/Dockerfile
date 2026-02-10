@@ -1,6 +1,6 @@
-FROM apache/airflow:3.1.6
+FROM apache/airflow:3.1.7
 
-LABEL version=3.1.6
+LABEL version=3.1.7
 
 USER root
 
