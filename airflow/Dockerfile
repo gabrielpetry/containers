@@ -23,5 +23,6 @@ RUN pip install --no-cache-dir \
   geopandas \
   pandas \
   boto3 \
-  pyarrow
+  pyarrow \
+  apache-airflow-providers-trino
 
