@@ -24,5 +24,6 @@ RUN pip install --no-cache-dir \
   pandas \
   boto3 \
   pyarrow \
-  apache-airflow-providers-trino
+  apache-airflow-providers-trino \
+  pyiceberg
 
