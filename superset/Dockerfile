@@ -1,25 +1,27 @@
-FROM docker.io/apache/superset:5.0.0
+FROM docker.io/apache/superset:6.0.0
 
 LABEL maintainer="Gabriel Petry"
-LABEL version="5.0.0"
+LABEL version="6.0.0"
 LABEL app="superset"
 
 USER root
 
-# Install packages using uv into the virtual environment
-RUN . /app/.venv/bin/activate && \
+RUN \
+    apt-get update && \
+    apt-get install -y gcc g++
+
+RUN \
+    . .venv/bin/activate && \
     uv pip install \
-    # install psycopg2 for using PostgreSQL metadata store - could be a MySQL package if using that backend:
+    "apache-superset[trino]" \
     psycopg2-binary \
-    # openpyxl to be able to upload Excel files
     openpyxl \
-    # Pillow for Alerts & Reports to generate PDFs of dashboards
     Pillow \
-    # trino
     trino
 
+RUN \
+    apt-get -y purge gcc g++
 
-# Switch back to the superset user
 USER superset
 
 CMD ["/app/docker/entrypoints/run-server.sh"]
